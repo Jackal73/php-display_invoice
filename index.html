@@ -1,4 +1,10 @@
 <!--set default value of variables for initial page load-->
+<?php
+    if (!isset($cust_fName)) {$first_name = '';}
+    if (!isset($cust_lName)) {$last_name = '';}
+    if (!isset($labor_costs)) {$labor_costs = '';}
+    if (!isset($parts_costs)) {$parts_cost = '';}
+?>
 <!--don't forget to save the file as index.php when done-->
 <!DOCTYPE html>
 <html>
@@ -11,10 +17,11 @@
         <main>
             <h1>Dooley's Automotive</h1>
             <!--insert if statement to display $error_message if it's not empty-->
-            <?php if (!empty(error_message)) { ?>
+            <?php if (!empty($error_message)) { ?>
                 <p class="error"><?php echo htmlspecialchars($error_message); ?>
                 </p>
             <?php } ?>
+
             <form action="display_invoice.php" method="post">
 
                 <div id="data">
